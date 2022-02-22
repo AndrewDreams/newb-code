@@ -1,6 +1,6 @@
 // acipco rates per state below - trying to get the sum of (rate + fuel) * miles = number i need
-const state = process.env.STATE;
-const miles = parseInt(process.env.MILES);
+// const state = process.env.STATE;
+// const miles = parseInt(process.env.MILES);
 const acipcoRates = {
     "arizona": 2.95,
     "arkansasEast": 3.70,
@@ -60,13 +60,16 @@ const acipcoRates = {
 
 };
 
-fuel = .68
-rate = acipcoRates[state]
-
 // this is the function i'm using to call the rate i need
-function rateArg(mileage) {
-    return (mileage * (fuel + rate))
+function rateArg(mileage, state) {
+    const fuel = .68
+    const rate = acipcoRates[state]
+    console.log("the rate on this lane is: " + (mileage * (fuel + rate)))
 }
 
 
-console.log(rateArg(miles))
+// rateArg(1000, 'washington')
+
+
+
+
